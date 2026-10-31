@@ -30,6 +30,7 @@ La carpeta `dist/` contiene la página compilada y sus recursos. Debe servirse m
 - Resumen ejecutivo con indicadores calculados y tendencias.
 - Operaciones: comparación por centro, zona y segmento; búsqueda, ordenación y paginación de conductores.
 - Mapa de Colombia: centros de referencia, indicadores filtrados, zoom y Google Maps como vista principal.
+- Rutas por ciudad: tres recorridos y doce puntos simulados, selección de punto, esquema interactivo y recorrido integrado en Google Maps.
 - Personal: plantilla, rotación, formación, ausencias y horas extra.
 - Finanzas: resultados mensuales, cartera y efectivo de cierre; rentabilidad de la muestra por cliente.
 - Portafolio: 12 alternativas del expediente, selección dentro del presupuesto de 1.000 MM COP y descuento A9/A5.
@@ -58,7 +59,7 @@ En **Cargar datos**, utiliza un libro con las hojas `Envios_muestra`, `Personal_
 
 Un CSV de envíos reemplaza la muestra y conserva los datos mensuales existentes. Una carga de Excel reemplaza sus conjuntos de datos. Las cargas permanecen en memoria: al recargar se restaura el archivo base. Los escenarios se guardan en `localStorage` del navegador.
 
-Los datos se procesan localmente. No hay conexión con Google Sheets, Drive o Firebase, ni sincronización de terceros. No se necesitan secretos para ejecutar esta versión. No incluye autenticación o publicación de producción.
+Los datos se procesan localmente. No hay conexión con Google Sheets, Drive o Firebase, ni sincronización de terceros. No se necesitan secretos para ejecutar esta versión. No incluye autenticación; la publicación de GitHub Pages es una demostración del caso académico.
 
 ## Verificación
 
@@ -86,3 +87,11 @@ El mapa local usa el contorno de Colombia de Natural Earth, de dominio público,
 Puedes seleccionar un centro, aplicar los filtros generales, acercar o alejar el mapa, restablecer la vista y centrar la ciudad en Google Maps dentro de la página. Al entrar al módulo del mapa, se muestra Google Maps por defecto mediante un iframe externo; no requiere claves API para esta consulta de referencia. Puedes cambiar a «Mapa sin conexión» como alternativa local. Esta vista depende de la conexión del visitante y de la disponibilidad de Google. El mapa local funciona sin ella.
 
 Google Maps se utiliza directamente dentro del dashboard: el iframe permite arrastrar y navegar; la barra del dashboard ajusta zoom, restablece Colombia y amplía el mapa dentro de la misma página. Los botones «Ver en el mapa» centran el mapa integrado sin abrir pestañas. Las ubicaciones siguen siendo referencias de las ciudades, no rastreo GPS de los envíos.
+
+## Rutas y puntos por ciudad
+
+Bogotá, Medellín, Cali y Barranquilla tienen tres rutas ilustrativas (Norte, Centro y Sur), con cuatro puntos de referencia por ruta y una base de salida. En «Ciudad de la ruta» selecciona la ciudad y en «Recorrido» elige una ruta. El mapa integrado recibe los puntos en su orden; «Ver ruta completa» restaura el recorrido después de enfocar un punto.
+
+Debajo del mapa, el esquema muestra las tres rutas y los doce puntos de cada ciudad, incluso sin conexión. Puedes hacer clic en un punto del esquema o de la lista para enfocarlo en Google Maps. Las líneas del esquema son conexiones orientativas entre puntos, no trazados viales. El renderizado del recorrido de Google depende del servicio externo; el esquema y la lista permanecen disponibles.
+
+Las coordenadas y la asignación de envíos a rutas son **simuladas**: no proceden de direcciones de clientes, GPS ni asignaciones de despacho. Los conteos, reclamos y puntualidad se calculan con los envíos filtrados distribuidos de forma estable entre esos puntos, sin crear envíos adicionales. Los puntos de cada envío se conservan al cambiar periodo o filtros.
