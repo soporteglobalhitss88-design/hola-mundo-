@@ -4,7 +4,7 @@ Aplicación web en React para explorar el caso académico de Órbita Express. La
 
 ## Abrir sin instalar
 
-Descarga `orbita-express.html` y ábrelo con doble clic en un navegador moderno. Esta versión incluye datos, estilos, fuentes y dependencias; no necesita servidor ni conexión para el análisis y el mapa local. La vista opcional de Google Maps requiere internet. Admite filtros, simulación e importación de Excel/CSV. Para regenerarla desde el proyecto: `node scripts/export-standalone.mjs`.
+Descarga `orbita-express.html` y ábrelo con doble clic en un navegador moderno. Esta versión incluye datos, estilos, fuentes y dependencias; no necesita servidor ni conexión para el análisis y el mapa local. La vista principal del mapa usa Google Maps y requiere internet; puedes cambiar a «Mapa sin conexión». Admite filtros, simulación e importación de Excel/CSV. Para regenerarla desde el proyecto: `node scripts/export-standalone.mjs`.
 
 ## Ejecutar
 
@@ -29,7 +29,7 @@ La carpeta `dist/` contiene la página compilada y sus recursos. Debe servirse m
 
 - Resumen ejecutivo con indicadores calculados y tendencias.
 - Operaciones: comparación por centro, zona y segmento; búsqueda, ordenación y paginación de conductores.
-- Mapa de Colombia: centros de referencia, indicadores filtrados, zoom y vista opcional de Google Maps.
+- Mapa de Colombia: centros de referencia, indicadores filtrados, zoom y Google Maps como vista principal.
 - Personal: plantilla, rotación, formación, ausencias y horas extra.
 - Finanzas: resultados mensuales, cartera y efectivo de cierre; rentabilidad de la muestra por cliente.
 - Portafolio: 12 alternativas del expediente, selección dentro del presupuesto de 1.000 MM COP y descuento A9/A5.
@@ -83,4 +83,4 @@ El sitio publica exclusivamente el caso académico identificado como ficticio. L
 
 El mapa local usa el contorno de Colombia de Natural Earth, de dominio público, y coordenadas de referencia de Bogotá, Medellín, Cali y Barranquilla. No contiene geolocalización de entregas, conductores o rutas reales. Los puntos resumen la muestra seleccionada.
 
-Puedes seleccionar un centro, aplicar los filtros generales, acercar o alejar el mapa, restablecer la vista y abrir la ciudad en Google Maps. La pestaña Google Maps carga un iframe externo únicamente al elegirla; no requiere claves API para esta consulta de referencia. Esta vista depende de la conexión del visitante y de la disponibilidad de Google. El mapa local funciona sin ella.
+Puedes seleccionar un centro, aplicar los filtros generales, acercar o alejar el mapa, restablecer la vista y abrir la ciudad en Google Maps. Al entrar al módulo del mapa, se muestra Google Maps por defecto mediante un iframe externo; no requiere claves API para esta consulta de referencia. Puedes cambiar a «Mapa sin conexión» como alternativa local. Esta vista depende de la conexión del visitante y de la disponibilidad de Google. El mapa local funciona sin ella.
